@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3fcb2630-39c5-4d48-9d96-7cf28c49739e/resourceGroups/rg-bernardo-dev/providers/Microsoft.Web/sites/app-bernardo-dev-site",
+    "appService.deploySubpath": "dist\\bernardo-dev-site"
+}
