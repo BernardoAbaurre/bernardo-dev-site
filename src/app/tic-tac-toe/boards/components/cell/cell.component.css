@@ -1,0 +1,19 @@
+.cell
+{
+  width: 100px;
+  height: 100px;
+  margin: 2px;
+}
+
+.cell.active:hover {
+  background-color: #e2e6ea !important;
+  cursor: pointer;
+}
+
+:host
+{
+  width: fit-content;
+  height: fit-content;
+  margin: 0px;
+  padding: 0px;
+}

@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'hub',
     component: HubPageComponent
-  }
+  },
+  {
+    path: 'tic-tac-toe',
+    loadChildren: () => import('./tic-tac-toe/tic-tac-toe.module').then(m => m.TicTacToeModule)
+  },
 ];
 
 @NgModule({

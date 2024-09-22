@@ -1,0 +1,3 @@
+<div class="cell bg-light rounded-2" [ngClass]="{'active': status == 0}">
+  <img *ngIf="status != 0" class="object-fit-cover w-100 h-100" [src]="this.status == 2 ? this.circleImageUrl : (this.status == 1 ? this.crossImageUrl : '')" >
+</div>

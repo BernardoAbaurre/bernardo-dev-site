@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   apis: {
-    bernardoDev: "https://localhost:7068/api/"
-  }
+    bernardoDevApi: "https://localhost:7068/api/",
+    bernardoDevHub: "https://localhost:7068/hub/",
+  },
 };
 
 /*

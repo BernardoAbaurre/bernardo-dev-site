@@ -10,7 +10,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly baseUrl = environment.apis.bernardoDev + 'weather';
+  private readonly baseUrl = environment.apis.bernardoDevApi + 'weather';
 
   public getAll() : Observable<any> {
     return this.http.get(this.baseUrl);

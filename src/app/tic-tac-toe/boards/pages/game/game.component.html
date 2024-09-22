@@ -1,0 +1,30 @@
+<div class="container text-center">
+  <h1 class="mt-5">Tic Tac Toe</h1>
+
+  <h5>{{turn.Name}}'s turn</h5>
+  <div class="d-flex align-items-center flex-column" *ngIf="board">
+    <div class="row">
+      <app-cell [status]="board?.Fields[0]" (click)="play(0)"></app-cell>
+      <app-cell [status]="board?.Fields[1]" (click)="play(1)"></app-cell>
+      <app-cell [status]="board?.Fields[2]" (click)="play(2)"></app-cell>
+    </div>
+    <div class="row">
+      <app-cell [status]="board?.Fields[3]" (click)="play(3)"></app-cell>
+      <app-cell [status]="board?.Fields[4]" (click)="play(4)"></app-cell>
+      <app-cell [status]="board?.Fields[5]" (click)="play(5)"></app-cell>
+    </div>
+    <div class="row">
+      <app-cell [status]="board?.Fields[6]" (click)="play(6)"></app-cell>
+      <app-cell [status]="board?.Fields[7]" (click)="play(7)"></app-cell>
+      <app-cell [status]="board?.Fields[8]" (click)="play(8)"></app-cell>
+    </div>
+
+  </div>
+  <button class="btn btn-primary btn-restart" id="restart" (click)="restart()">Restart game</button>
+  <div class="mt-3">
+      <h3 id="message"></h3>
+  </div>
+</div>
+
+
+
