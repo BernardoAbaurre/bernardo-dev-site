@@ -11,13 +11,14 @@ export class HubConnectionHelper
 
   public iniciar() : Promise<void>
   {
-    this.hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl(this.hubUrl,{
-      skipNegotiation: true,
-      transport: signalR.HttpTransportType.WebSockets
-    })
-    .withAutomaticReconnect()
-    .build();
+    console.log(this.hubUrl);
+      this.hubConnection = new signalR.HubConnectionBuilder()
+      .withUrl(this.hubUrl,{
+        withCredentials: true,
+        transport: signalR.HttpTransportType.WebSockets
+      })
+      .withAutomaticReconnect()
+      .build();
 
     this.connectionStatus$.next(ConnectionStatusEnum.Connecting);
 
