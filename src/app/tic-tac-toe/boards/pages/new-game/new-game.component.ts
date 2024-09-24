@@ -17,7 +17,10 @@ export class NewGameComponent implements OnInit {
   constructor(private readonly boardsService: BoardsService, private readonly router: Router, private toastr: ToastrService, private route: ActivatedRoute, private bsModalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.boardId = this.route.snapshot.params['id'];
+    this.boardId = this.route.snapshot.params['boardId'];
+    if(this.boardId) {
+      this.newGame();
+    }
   }
 
   public newGame() {
