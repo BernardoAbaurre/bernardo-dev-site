@@ -8,6 +8,7 @@ import { FieldStatusEnum } from '../../models/enums/field-status.enum';
 })
 export class CellComponent implements OnInit {
   @Input() status: number = FieldStatusEnum.Empty;
+  @Input() activeTurn: boolean;
 
   circleImageUrl: string = "../../../../../assets/images/tic-tac-toe/circulo.png";
   crossImageUrl: string = "../../../../../assets/images/tic-tac-toe/x.png";

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BoardsService } from '../../services/boards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { WeatherService } from 'src/app/shared/services/weather.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { NewPlayerModalComponent } from '../../components/new-player-modal/new-player-modal.component';
 
@@ -19,7 +18,7 @@ export class NewGameComponent implements OnInit {
   ngOnInit(): void {
     this.boardId = this.route.snapshot.params['boardId'];
     if(this.boardId) {
-      this.newGame();
+      this.joinGame();
     }
   }
 
