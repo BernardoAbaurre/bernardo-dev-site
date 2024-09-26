@@ -10,10 +10,11 @@
 
         <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)"></app-board>
 
-        <button class="btn btn-primary btn-restart" id="restart" (click)="restart()">Restart game</button>
-        <div class="mt-3">
-          <h3 id="message"></h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <app-share-btn class="me-1" [boardId]="board.Id"></app-share-btn>
+          <button class="btn btn-primary btn-restart mt-0 ms-1" id="restart" (click)="restart()">Restart game</button>
         </div>
+
       </div>
       <div class="col-1">
         <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
@@ -27,9 +28,9 @@
 
         <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)"></app-board>
 
-        <button class="btn btn-primary btn-restart" id="restart" (click)="restart()">Restart game</button>
-        <div class="mt-3">
-          <h3 id="message"></h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <app-share-btn class="me-1" [boardId]="board.Id"></app-share-btn>
+          <button class="btn btn-primary btn-restart mt-0 ms-1" id="restart" (click)="restart()">Restart game</button>
         </div>
       </div>
       <div class="row">

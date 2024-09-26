@@ -21,6 +21,7 @@
     "@angular/router": "^14.0.0",
     "@microsoft/signalr": "^8.0.7",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "ngx-bootstrap": "^9.0.0",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.5.0",

@@ -10,7 +10,7 @@ import { BoardsModule } from './boards/boards.module';
 
 @NgModule({
   declarations: [
-    TicTacToeComponent
+    TicTacToeComponent,
   ],
   imports: [
     CommonModule,

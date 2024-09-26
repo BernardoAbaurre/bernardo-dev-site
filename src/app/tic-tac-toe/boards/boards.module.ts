@@ -9,6 +9,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CellComponent } from './components/cell/cell.component';
 import { NewPlayerModalComponent } from './components/new-player-modal/new-player-modal.component';
 import { PlayerDialComponent } from './components/player-dial/player-dial.component';
+import { ShareBtnComponent } from './components/share-btn/share-btn.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -19,7 +21,8 @@ import { PlayerDialComponent } from './components/player-dial/player-dial.compon
     NewGameComponent,
     CellComponent,
     NewPlayerModalComponent,
-    PlayerDialComponent
+    PlayerDialComponent,
+    ShareBtnComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,7 @@ import { PlayerDialComponent } from './components/player-dial/player-dial.compon
     FormsModule,
     ReactiveFormsModule,
     ToastrModule,
+    SharedModule
   ]
 })
 export class BoardsModule { }
