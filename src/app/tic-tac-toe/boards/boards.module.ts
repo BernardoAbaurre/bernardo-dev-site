@@ -11,6 +11,7 @@ import { NewPlayerModalComponent } from './components/new-player-modal/new-playe
 import { PlayerDialComponent } from './components/player-dial/player-dial.component';
 import { ShareBtnComponent } from './components/share-btn/share-btn.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { GameOverModalComponent } from './components/game-over-modal/game-over-modal.component';
 
 
 
@@ -23,6 +24,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     NewPlayerModalComponent,
     PlayerDialComponent,
     ShareBtnComponent,
+    GameOverModalComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class BoardsModule { }

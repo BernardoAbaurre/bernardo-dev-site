@@ -4,8 +4,6 @@ import { HubConnectionHelper } from 'src/app/shared/hub-conection-helper';
 import { environment } from 'src/environments/environment';
 import { BoardResponse } from '../models/responses/board.response';
 import { HttpClient } from '@angular/common/http';
-import { FieldStatusEnum } from '../models/enums/field-status.enum';
-import { UserResponse } from '../models/responses/user.response';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +13,7 @@ export class BoardsService extends HubConnectionHelper {
   protected override hubUrl = environment.apis.bernardoDevHub + 'tic-tac-toe';
 
   public boardEvent = new EventEmitter<BoardResponse>();
-  public usersEvent = new EventEmitter<UserResponse[]>();
+  public gameOverEvent = new EventEmitter<number[]>();
 
   constructor(private http: HttpClient) {
     super();
@@ -56,8 +54,8 @@ export class BoardsService extends HubConnectionHelper {
       this.boardEvent.emit(new BoardResponse(board));
     });
 
-    this.hubConnection.on("ReceiveUpdateBoard", users => {
-      this.usersEvent.emit(users);
+    this.hubConnection.on("ReceiveGameOver", indexes => {
+      this.gameOverEvent.emit(indexes);
     });
   }
 

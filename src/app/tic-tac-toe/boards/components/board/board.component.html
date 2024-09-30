@@ -1,17 +1,6 @@
 <div class="d-flex align-items-center flex-column" *ngIf="board">
-  <div class="row">
-    <app-cell [status]="board?.Fields[0]" [activeTurn]="activeTurn" (click)="play(0)"></app-cell>
-    <app-cell [status]="board?.Fields[1]" [activeTurn]="activeTurn" (click)="play(1)"></app-cell>
-    <app-cell [status]="board?.Fields[2]" [activeTurn]="activeTurn" (click)="play(2)"></app-cell>
-  </div>
-  <div class="row">
-    <app-cell [status]="board?.Fields[3]" [activeTurn]="activeTurn" (click)="play(3)"></app-cell>
-    <app-cell [status]="board?.Fields[4]" [activeTurn]="activeTurn" (click)="play(4)"></app-cell>
-    <app-cell [status]="board?.Fields[5]" [activeTurn]="activeTurn" (click)="play(5)"></app-cell>
-  </div>
-  <div class="row">
-    <app-cell [status]="board?.Fields[6]" [activeTurn]="activeTurn" (click)="play(6)"></app-cell>
-    <app-cell [status]="board?.Fields[7]" [activeTurn]="activeTurn" (click)="play(7)"></app-cell>
-    <app-cell [status]="board?.Fields[8]" [activeTurn]="activeTurn" (click)="play(8)"></app-cell>
+  <div class="row" *ngFor="let row of [0, 1, 2]">
+    <app-cell *ngFor="let col of [0, 1, 2]" [cell]="cells[row * 3 + col]" (click)="play(row * 3 + col)"></app-cell>
   </div>
 </div>
+

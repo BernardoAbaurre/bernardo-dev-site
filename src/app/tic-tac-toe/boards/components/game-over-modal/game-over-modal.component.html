@@ -1,0 +1,12 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">GAME OVER</h5>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <h3 *ngIf="player;else tied">{{player.Name}} WINS!</h3>
+    <ng-template #tied>
+      <h3> IT'S TIED!</h3>
+    </ng-template>
+  </div>
+</div>

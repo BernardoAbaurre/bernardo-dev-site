@@ -13,8 +13,7 @@ export class CopyClipboardBtnDirective {
     this.copyToClipBoard();
   }
 
-  constructor(readonly toastr: ToastrService) {
-   }
+  constructor(readonly toastr: ToastrService) {}
 
   copyToClipBoard() {
     navigator.clipboard.writeText(this.text)

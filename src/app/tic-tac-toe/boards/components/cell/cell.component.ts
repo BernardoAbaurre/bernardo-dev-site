@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FieldStatusEnum } from '../../models/enums/field-status.enum';
+import { Cell } from '../../models/classes/cell';
 
 @Component({
   selector: 'app-cell',
@@ -7,18 +7,18 @@ import { FieldStatusEnum } from '../../models/enums/field-status.enum';
   styleUrls: ['./cell.component.css']
 })
 export class CellComponent implements OnInit {
-  @Input() status: number = FieldStatusEnum.Empty;
-  @Input() activeTurn: boolean;
+  @Input() cell: Cell;
+
+  imageUrl: string;
 
   circleImageUrl: string = "../../../../../assets/images/tic-tac-toe/circulo.png";
   crossImageUrl: string = "../../../../../assets/images/tic-tac-toe/x.png";
 
-  imageUrl = this.status == 2 ? this.circleImageUrl : (this.status == 1 ? this.crossImageUrl : "");
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.status);
+    this.imageUrl = this.cell.Status == 2 ? this.circleImageUrl : (this.cell.Status == 1 ? this.crossImageUrl : "");
   }
 
 }

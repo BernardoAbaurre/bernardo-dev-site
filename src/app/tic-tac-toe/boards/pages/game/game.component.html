@@ -1,6 +1,6 @@
 <div class="container text-center">
   <h1 class="mt-5">Tic Tac Toe</h1>
-  <div class="d-none d-md-block">
+  <ng-container *ngIf="screenWidth >= 768;else mobile">
     <div class="row" *ngIf="board">
       <div class="col-1">
         <app-player-dial [player]="board.Players[0]"></app-player-dial>
@@ -8,7 +8,7 @@
       <div class="col-10">
         <h5>{{turn?.Name}}'s turn</h5>
 
-        <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)"></app-board>
+        <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)" (gameOver)="gameOver($event)"></app-board>
 
         <div class="d-flex justify-content-center align-items-center">
           <app-share-btn class="me-1" [boardId]="board.Id"></app-share-btn>
@@ -20,29 +20,31 @@
         <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
       </div>
     </div>
-  </div>
-  <div class="d-flex d-md-none flex-column justify-items-center align-itens-center ">
-    <ng-container *ngIf="board">
-      <div class="col-12">
-        <h5>{{turn?.Name}}'s turn</h5>
+  </ng-container>
+  <ng-template #mobile>
+    <div class="d-flex flex-column justify-items-center align-itens-center ">
+      <ng-container *ngIf="board">
+        <div class="col-12">
+          <h5>{{turn?.Name}}'s turn</h5>
 
-        <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)"></app-board>
+          <app-board [board]="board" [activeTurn]="turn.Id == playerId" (play)="play($event)" (gameOver)="gameOver($event)"></app-board>
 
-        <div class="d-flex justify-content-center align-items-center">
-          <app-share-btn class="me-1" [boardId]="board.Id"></app-share-btn>
-          <button class="btn btn-primary btn-restart mt-0 ms-1" id="restart" (click)="restart()">Restart game</button>
+          <div class="d-flex justify-content-center align-items-center">
+            <app-share-btn class="me-1" [boardId]="board.Id"></app-share-btn>
+            <button class="btn btn-primary btn-restart mt-0 ms-1" id="restart" (click)="restart()">Restart game</button>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <app-player-dial [player]="board.Players[0]"></app-player-dial>
+        <div class="row">
+          <div class="col-6">
+            <app-player-dial [player]="board.Players[0]"></app-player-dial>
+          </div>
+          <div class="col-6">
+            <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
+          </div>
         </div>
-        <div class="col-6">
-          <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
-        </div>
-      </div>
-    </ng-container>
-  </div>
+      </ng-container>
+    </div>
+  </ng-template>
 </div>
 
 
