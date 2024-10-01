@@ -1,11 +1,11 @@
-import { BoardsService } from './../../services/boards.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { BoardResponse } from '../../models/responses/board.response';
 import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.service';
 import { PlayerResponse } from 'src/app/tic-tac-toe/players/models/responses/player.response';
-import { GameOverModalComponent } from '../../components/game-over-modal/game-over-modal.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { BoardResponse } from '../../boards/models/responses/board.response';
+import { BoardsService } from '../../boards/services/boards.service';
+import { GameOverModalComponent } from '../../components/game-over-modal/game-over-modal.component';
 
 
 @Component({

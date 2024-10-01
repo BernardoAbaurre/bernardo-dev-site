@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GameComponent } from './boards/pages/game/game.component';
-import { NewGameComponent } from './boards/pages/new-game/new-game.component';
-import { TicTacToeComponent } from './pages/tic-tac-toe/tic-tac-toe.component';
+import { GameComponent } from './pages/game/game.component';
+import { NewGameComponent } from './pages/new-game/new-game.component';
 
 const routes: Routes = [
   {
@@ -21,10 +20,6 @@ const routes: Routes = [
   {
     path: 'new-game/:boardId',
     component: NewGameComponent
-  },
-  {
-    path: 'a',
-    component: TicTacToeComponent
   },
 ];
 

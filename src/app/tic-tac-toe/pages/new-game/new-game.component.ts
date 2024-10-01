@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardsService } from '../../services/boards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { BoardsService } from '../../boards/services/boards.service';
 import { NewPlayerModalComponent } from '../../components/new-player-modal/new-player-modal.component';
 
 @Component({
