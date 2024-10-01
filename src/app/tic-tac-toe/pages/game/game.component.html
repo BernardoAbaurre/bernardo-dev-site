@@ -3,7 +3,7 @@
   <ng-container *ngIf="screenWidth >= 768;else mobile">
     <div class="row" *ngIf="board">
       <div class="col-1">
-        <app-player-dial [player]="board.Players[0]"></app-player-dial>
+        <app-player-dial [player]="myPlayer"></app-player-dial>
       </div>
       <div class="col-10">
         <h5>{{turn?.Name}}'s turn</h5>
@@ -17,7 +17,7 @@
 
       </div>
       <div class="col-1">
-        <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
+        <app-player-dial *ngIf="adversary" [player]="adversary"></app-player-dial>
       </div>
     </div>
   </ng-container>
@@ -36,10 +36,10 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <app-player-dial [player]="board.Players[0]"></app-player-dial>
+            <app-player-dial [player]="myPlayer"></app-player-dial>
           </div>
           <div class="col-6">
-            <app-player-dial *ngIf="board?.Players[1]" [player]="board.Players[1]"></app-player-dial>
+            <app-player-dial *ngIf="adversary" [player]="adversary"></app-player-dial>
           </div>
         </div>
       </ng-container>

@@ -18,6 +18,8 @@ export class GameComponent implements OnInit {
 
   boardId: string;
   playerId: string;
+  myPlayer: PlayerResponse;
+  adversary: PlayerResponse;
   board: BoardResponse
   connectionId: string;
   turn: PlayerResponse;
@@ -35,11 +37,15 @@ export class GameComponent implements OnInit {
     this.playerId = this.route.snapshot.params['playerId'];
     this.screenWidth = window.innerWidth;
 
-    await this.getBoard();
-    this.boardsService.iniciar().then(() => {this.joinBoard()});
+    await this.getBoard().then(() =>
+    {
+      this.boardsService.iniciar().then(() => {this.joinBoard()});
+    });
     this.boardsService.boardEvent.subscribe(board => {
        this.board = board;
        this.turn = board.Players.find(p => p.Turn);
+       this.myPlayer = board.Players.find(p => p.Id == this.playerId);
+       this.adversary = board.Players.find(p => p.Id != this.playerId);
     })
   }
 
@@ -49,6 +55,8 @@ export class GameComponent implements OnInit {
         next: (response) => {
           this.board = response
           this.turn = response.Players.find(p => p.Turn);
+          this.myPlayer = response.Players.find(p => p.Id == this.playerId);
+          this.adversary = response.Players.find(p => p.Id != this.playerId);
         },
         complete: () => {
           resolve();
