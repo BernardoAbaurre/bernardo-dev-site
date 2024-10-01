@@ -1,8 +1,9 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.service';
-import { PlayerResponse } from 'src/app/tic-tac-toe/players/models/responses/player.response';
+import { ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { PlayerResponse } from 'src/app/tic-tac-toe/players/models/responses/player.response';
+import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.service';
+
 import { BoardResponse } from '../../boards/models/responses/board.response';
 import { BoardsService } from '../../boards/services/boards.service';
 import { GameOverModalComponent } from '../../components/game-over-modal/game-over-modal.component';
@@ -63,10 +64,7 @@ export class GameComponent implements OnInit {
 
   public play(fieldIndex: number)
   {
-    if(this.turn.Id == this.playerId && this.board.Fields[fieldIndex] == 0)
-    {
-      this.boardsService.play(this.board.Id, fieldIndex, this.playerId);
-    }
+    this.boardsService.play(this.board.Id, fieldIndex, this.playerId);
   }
 
   public restart()

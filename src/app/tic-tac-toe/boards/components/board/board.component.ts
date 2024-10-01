@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { BoardResponse } from '../../models/responses/board.response';
-import { Cell } from '../../models/classes/cell';
 import { BoardsService } from 'src/app/tic-tac-toe/boards/services/boards.service';
+
+import { Cell } from '../../models/classes/cell';
+import { BoardResponse } from '../../models/responses/board.response';
 
 @Component({
   selector: 'app-board',
@@ -45,7 +46,10 @@ export class BoardComponent implements OnInit, OnChanges {
 
   public play(index: number)
   {
-    this.playEvent.emit(index);
+    if(this.cells[index].Status == 0 && this.cells[index].Active)
+    {
+      this.playEvent.emit(index);
+    }
   }
 
   setCells()

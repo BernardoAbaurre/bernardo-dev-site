@@ -1,8 +1,10 @@
-import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, Input, OnInit } from '@angular/core';
-import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.service';
-import { PlayerNewRequest } from 'src/app/tic-tac-toe/players/models/requests/player-new.request';
 import { Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { PlayerNewRequest } from 'src/app/tic-tac-toe/players/models/requests/player-new.request';
+import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.service';
+
+import { BoardsService } from '../../boards/services/boards.service';
 
 @Component({
   selector: 'app-new-player-modal',
@@ -10,16 +12,33 @@ import { Router } from '@angular/router';
 })
 export class NewPlayerModalComponent implements OnInit {
 
-  @Input() boardId: string;
+  @Input() boardId?: string;
 
   playerName: string;
 
-  constructor(private bsModalRef : BsModalRef, private playersService: PlayersService, private router: Router) { }
+  constructor(private bsModalRef : BsModalRef, private playersService: PlayersService, private router: Router, private boardsService: BoardsService) { }
 
   ngOnInit(): void {
   }
 
   public savePlayer()
+  {
+    if(!this.boardId)
+    {
+      this.boardsService.newBoard().subscribe({
+        next: (response) => {
+          this.boardId = response.Id;
+          this.newPlayer();
+        }
+      });
+    }
+    else
+    {
+      this.newPlayer();
+    }
+  }
+
+  private newPlayer()
   {
     const request : PlayerNewRequest = {BoardId: this.boardId, Name: this.playerName }
     this.playersService.newPlayer(request).subscribe({
@@ -30,7 +49,7 @@ export class NewPlayerModalComponent implements OnInit {
         });
   }
 
-  closeModal()
+  public closeModal()
   {
     this.bsModalRef.hide();
   }

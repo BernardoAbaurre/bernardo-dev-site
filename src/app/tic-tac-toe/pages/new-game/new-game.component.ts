@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
+
 import { BoardsService } from '../../boards/services/boards.service';
 import { NewPlayerModalComponent } from '../../components/new-player-modal/new-player-modal.component';
 
@@ -22,14 +23,6 @@ export class NewGameComponent implements OnInit {
     }
   }
 
-  public newGame() {
-    this.boardsService.newBoard().subscribe({
-      next: (response) => {
-        this.openNewPlayerModal(response.Id);
-      }
-    });
-  }
-
   public joinGame() {
     this.boardsService.getBoardById(this.boardId).subscribe({
       next: (response) => {
@@ -38,7 +31,7 @@ export class NewGameComponent implements OnInit {
     });
   }
 
-  private openNewPlayerModal(boardId: string) {
+  public openNewPlayerModal(boardId?: string) {
     this.bsModalService.show(NewPlayerModalComponent, {
       initialState: {boardId: boardId}
     });
