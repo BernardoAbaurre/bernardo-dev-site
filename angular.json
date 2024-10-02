@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css"
             ],
             "scripts": []
           },
@@ -99,7 +100,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css"
             ],
             "scripts": []
           }

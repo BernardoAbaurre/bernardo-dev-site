@@ -3,6 +3,7 @@ import { BoardsService } from 'src/app/tic-tac-toe/boards/services/boards.servic
 
 import { Cell } from '../../models/classes/cell';
 import { BoardResponse } from '../../models/responses/board.response';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-board',
@@ -17,12 +18,24 @@ export class BoardComponent implements OnInit, OnChanges {
 
   cells: Cell[] | null[] = [null, null, null, null, null, null, null, null, null];
 
-  constructor(private readonly boardsService: BoardsService) { }
+  constructor(
+    private readonly boardsService: BoardsService,
+    private spinner: NgxSpinnerService,
+  ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['board'])
     {
       this.setCells();
+
+      if(this.board.Players.length < 2)
+        {
+          this.spinner.show();
+        }
+        else
+        {
+          this.spinner.hide();
+        }
     }
   }
 

@@ -1,4 +1,8 @@
+
 <div class="d-flex align-items-center flex-column" *ngIf="board">
+  <ngx-spinner type="ball-clip-rotate-multiple" [fullScreen]="false" [zIndex]="0">
+    <p class="loading">Waiting for another player</p>
+  </ngx-spinner>
   <div class="row" *ngFor="let row of [0, 1, 2]">
     <app-cell *ngFor="let col of [0, 1, 2]" [cell]="cells[row * 3 + col]" (click)="play(row * 3 + col)"></app-cell>
   </div>

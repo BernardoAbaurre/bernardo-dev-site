@@ -19,7 +19,7 @@ import { NewPlayerModalComponent } from './components/new-player-modal/new-playe
     GameOverModalComponent,
     PlayerDialComponent,
     ShareBtnComponent,
-    NewPlayerModalComponent
+    NewPlayerModalComponent,
   ],
   imports: [
     BoardsModule,
@@ -29,7 +29,7 @@ import { NewPlayerModalComponent } from './components/new-player-modal/new-playe
     BoardsModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class TicTacToeModule { }

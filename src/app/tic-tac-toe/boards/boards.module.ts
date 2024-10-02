@@ -6,6 +6,7 @@ import { BoardComponent } from './components/board/board.component';
 import { ToastrModule } from 'ngx-toastr';
 import { CellComponent } from './components/cell/cell.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -21,6 +22,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ReactiveFormsModule,
     ToastrModule,
     SharedModule,
+    NgxSpinnerModule,
   ],
   exports: [BoardComponent]
 })

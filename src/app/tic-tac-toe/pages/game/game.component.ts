@@ -7,6 +7,7 @@ import { PlayersService } from 'src/app/tic-tac-toe/players/services/players.ser
 import { BoardResponse } from '../../boards/models/responses/board.response';
 import { BoardsService } from '../../boards/services/boards.service';
 import { GameOverModalComponent } from '../../components/game-over-modal/game-over-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -30,7 +31,11 @@ export class GameComponent implements OnInit {
     this.screenWidth = window.innerWidth;
   }
 
-  constructor(private boardsService: BoardsService, private route: ActivatedRoute, private playersService: PlayersService, private bsModalService: BsModalService) { }
+  constructor(
+    private boardsService: BoardsService,
+    private route: ActivatedRoute,
+    private bsModalService: BsModalService,
+  ) { }
 
   async ngOnInit(): Promise<void> {
     this.boardId = this.route.snapshot.params['boardId'];
@@ -42,21 +47,22 @@ export class GameComponent implements OnInit {
       this.boardsService.iniciar().then(() => {this.joinBoard()});
     });
     this.boardsService.boardEvent.subscribe(board => {
-       this.board = board;
-       this.turn = board.Players.find(p => p.Turn);
-       this.myPlayer = board.Players.find(p => p.Id == this.playerId);
-       this.adversary = board.Players.find(p => p.Id != this.playerId);
+      this.setBoard(board);
     })
+  }
+
+  private setBoard(board: BoardResponse) {
+    this.board = board;
+    this.turn = board.Players.find(p => p.Turn);
+    this.myPlayer = board.Players.find(p => p.Id == this.playerId);
+    this.adversary = board.Players.find(p => p.Id != this.playerId);
   }
 
   public async getBoard() {
     return new Promise<void>(resolve => {
       this.boardsService.getBoardById(this.boardId).subscribe({
         next: (response) => {
-          this.board = response
-          this.turn = response.Players.find(p => p.Turn);
-          this.myPlayer = response.Players.find(p => p.Id == this.playerId);
-          this.adversary = response.Players.find(p => p.Id != this.playerId);
+          this.setBoard(response);
         },
         complete: () => {
           resolve();
