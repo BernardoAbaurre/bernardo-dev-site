@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit, OnChanges {
     {
       this.setCells();
 
-      if(this.board.Players.length < 2)
+      if(this.board.Players.filter(p => p.Connected).length < 2)
         {
           this.spinner.show();
         }

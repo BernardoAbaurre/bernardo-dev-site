@@ -1,0 +1,24 @@
+.status {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.status.online {
+  background: #72ff7d;
+}
+
+.status.offline {
+  background: #ff4242;
+}
+
+.status.invisible {
+  background: #42e5ff;
+}
+
+.status.idle {
+  background: #ffda72;
+}

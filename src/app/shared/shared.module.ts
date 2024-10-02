@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageCardComponent } from './components/page-card/page-card.component';
 import { ShareBtnDirective } from './directives/share-btn.directive';
 import { CopyClipboardBtnDirective } from './directives/copy-clipboard-btn.directive';
+import { ConnectionStatusIndicatorComponent } from './components/connection-status-indicator/connection-status-indicator.component';
 
 
 
@@ -14,7 +15,8 @@ import { CopyClipboardBtnDirective } from './directives/copy-clipboard-btn.direc
     HeaderComponent,
     PageCardComponent,
     ShareBtnDirective,
-    CopyClipboardBtnDirective
+    CopyClipboardBtnDirective,
+    ConnectionStatusIndicatorComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { CopyClipboardBtnDirective } from './directives/copy-clipboard-btn.direc
     HeaderComponent,
     PageCardComponent,
     ShareBtnDirective,
-    CopyClipboardBtnDirective
+    CopyClipboardBtnDirective,
+    ConnectionStatusIndicatorComponent
   ]
 })
 export class SharedModule { }

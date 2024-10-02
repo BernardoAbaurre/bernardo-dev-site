@@ -1,0 +1,2 @@
+<!-- <span class="status" [ngClass]="{'online': status == 'Connected', 'idle': (status == 'Connecting' || status == 'Reconnecting'),  'offline': status == 'Not Connected'}"></span> -->
+<span class="status" [ngClass]="status ? 'online' : 'offline'"></span>

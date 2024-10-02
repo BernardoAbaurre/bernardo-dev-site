@@ -1,6 +1,6 @@
 
 <div class="d-flex align-items-center flex-column" *ngIf="board">
-  <ngx-spinner type="ball-clip-rotate-multiple" [fullScreen]="false" [zIndex]="0">
+  <ngx-spinner type="ball-clip-rotate-multiple" [fullScreen]="true" [zIndex]="0">
     <p class="loading">Waiting for another player</p>
   </ngx-spinner>
   <div class="row" *ngFor="let row of [0, 1, 2]">

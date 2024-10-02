@@ -1,3 +1,4 @@
+import { ConnectionStatusEnum } from './../../../shared/models/enums/connection-status.enum';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PlayerResponse } from 'src/app/tic-tac-toe/players/models/responses/player.response';
 
@@ -12,6 +13,9 @@ export class PlayerDialComponent implements OnInit, OnChanges {
 
   circleImageUrl: string = "../../../../../assets/images/tic-tac-toe/circulo.png";
   crossImageUrl: string = "../../../../../assets/images/tic-tac-toe/x.png";
+
+  connectedStatus: ConnectionStatusEnum.Connected;
+  notConnectedStatus: ConnectionStatusEnum.NotConnected;
 
 
   constructor() { }

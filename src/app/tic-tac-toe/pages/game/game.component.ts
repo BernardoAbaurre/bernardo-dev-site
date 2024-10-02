@@ -37,15 +37,13 @@ export class GameComponent implements OnInit {
     private bsModalService: BsModalService,
   ) { }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.boardId = this.route.snapshot.params['boardId'];
     this.playerId = this.route.snapshot.params['playerId'];
     this.screenWidth = window.innerWidth;
 
-    await this.getBoard().then(() =>
-    {
-      this.boardsService.iniciar().then(() => {this.joinBoard()});
-    });
+    this.getBoard()
+
     this.boardsService.boardEvent.subscribe(board => {
       this.setBoard(board);
     })
@@ -59,16 +57,12 @@ export class GameComponent implements OnInit {
   }
 
   public async getBoard() {
-    return new Promise<void>(resolve => {
-      this.boardsService.getBoardById(this.boardId).subscribe({
-        next: (response) => {
-          this.setBoard(response);
-        },
-        complete: () => {
-          resolve();
-        }
-      });
-    })
+    this.boardsService.getBoardById(this.boardId).subscribe({
+      next: (response) => {
+        this.setBoard(response);
+        this.boardsService.iniciar().then(() => {this.joinBoard()});
+      },
+    });
   }
 
   public joinBoard() {
